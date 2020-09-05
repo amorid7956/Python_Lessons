@@ -11,5 +11,6 @@ while is_special:
             print('Выход из программы')
             is_special = False
             break
-
-    print('Сумма введённых чисел: ',sum)
+        else:
+            break
+    print('Сумма введённых чисел: ', sum)
