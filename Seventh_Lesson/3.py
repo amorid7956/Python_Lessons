@@ -6,16 +6,23 @@ class Cell:
         return f'У данной клетки {self.cell_numbers} ячеек'
 
     def __add__(self, other):
+        if not isinstance(other, Cell):
+            raise TypeError("Неверный тип операнда")
         return Cell(self.cell_numbers + other.cell_numbers)
 
     def __sub__(self, other):
-        return Cell(self.cell_numbers - other.cell_numbers) if self.cell_numbers > other.cell_numbers else \
-            'Результирующее количество ячеек не может быть меньше 0'
+        if not isinstance(other, Cell):
+            raise TypeError("Неверный тип операнда")
+        return Cell(self.cell_numbers - other.cell_numbers) if self.cell_numbers > other.cell_numbers else Cell(0)
 
     def __mul__(self, other):
+        if not isinstance(other, Cell):
+            raise TypeError("Неверный тип операнда")
         return Cell(self.cell_numbers * other.cell_numbers)
 
     def __truediv__(self, other):
+        if not isinstance(other, Cell):
+            raise TypeError("Неверный тип операнда")
         return Cell(self.cell_numbers // other.cell_numbers)
 
     def make_order(self, cell_number=1):
